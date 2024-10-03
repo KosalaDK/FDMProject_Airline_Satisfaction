@@ -10,7 +10,6 @@ import plotly.tools as tls
 import plotly.graph_objs
 from plotly.tools import mpl_to_plotly
 import os
-from app import app
 os.getcwd()
 
 # bootstrap theme
