@@ -5,11 +5,12 @@ from typing import Container
 import plotly.express as px
 import pandas as pd
 from dash import dcc,html
-from dash.dependencies import Output, Input
+from dash.dependencies import Output, Input, State
 import plotly.tools as tls
 import plotly.graph_objs
 from plotly.tools import mpl_to_plotly
 import os
+from apps import classification,pie_chart
 os.getcwd()
 
 # bootstrap theme
