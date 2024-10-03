@@ -1,0 +1,57 @@
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgba(106, 141, 101, 0.678);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: rgb(121, 145, 171);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(143, 176, 209);
+}
+
+.maindiv {
+  border-radius: 5px;
+  background-color: rgb(208, 216, 224);
+  padding: 20px;
+  position: absolute;
+  left: 40rem;
+  opacity: 0.92;
+}
+
+.divdisplay {
+  position: relative;
+  left: 30%;
+  right: 25%;
+  border-radius: 5px;
+  background-color: rgb(208, 216, 224);
+  padding: 20px;
+  width: 50rem;
+  height: auto;
+  position: absolute;
+  align-items: center;
+}
+
+body {
+  background-image: url("./background.jpg");
+  background-size: 140%;
+  background-repeat: no-repeat;
+
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}

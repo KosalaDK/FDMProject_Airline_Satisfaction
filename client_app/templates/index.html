@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Check Customer Satisfaction</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+    <link rel="icon" href="{{url_for('static', filename='icon.png')}}" type="image/gif" sizes="16x16">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{{url_for('static', filename='icon.png')}}" alt="Air U.S. logo" height="50" class="d-inline-block align-text-top">
+                AIR U.S.
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10 maindiv">
+                <h1 class="text-center display-5 mb-4">Check Customer Satisfaction</h1>
+
+                <form action="/result" method="POST">
+                    <!-- Personal Details Section -->
+                    <fieldset class="mb-4">
+                        <legend>Personal Details</legend>
+
+                        <!-- Gender -->
+                        <div class="mb-3">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select id="gender" name="gender" class="form-select" required>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            </select>
+                        </div>
+
+                        <!-- Customer Type -->
+                        <div class="mb-3">
+                            <label for="Ctype" class="form-label">Customer Type</label>
+                            <select id="Ctype" name="Ctype" class="form-select" required>
+                                <option value="0">Loyal Customer</option>
+                                <option value="1">Disloyal Customer</option>
+                            </select>
+                        </div>
+
+                        <!-- Age -->
+                        <div class="mb-3">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" id="age" name="age" class="form-control" min="1" max="120" required>
+                        </div>
+
+                        <!-- Type Of Travel -->
+                        <div class="mb-3">
+                            <label for="Ttype" class="form-label">Type Of Travel</label>
+                            <select id="Ttype" name="Ttype" class="form-select" required>
+                                <option value="1">Business Travel</option>
+                                <option value="2">Personal Travel</option>
+                            </select>
+                        </div>
+
+                        <!-- Class -->
+                        <div class="mb-3">
+                            <label for="Class" class="form-label">Class</label>
+                            <select id="Class" name="Class" class="form-select" required>
+                                <option value="1">Business</option>
+                                <option value="2">Economy</option>
+                                <option value="3">Economy Plus</option>
+                            </select>
+                        </div>
+
+                        <!-- Flight Distance -->
+                        <div class="mb-3">
+                            <label for="Flight_Distance" class="form-label">Flight Distance (km)</label>
+                            <input type="number" id="Flight_Distance" name="Flight_Distance" class="form-control" min="0" max="99999" required>
+                        </div>
+                    </fieldset>
+
+                    <!-- Service Satisfaction Section -->
+                    <fieldset>
+                        <legend>Service Satisfaction</legend>
+
+                        <!-- Rating System (Bootstrap Grid for better alignment) -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered text-center">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Service</th>
+                                        <th>0</th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Repeat this block for each service rating -->
+                                    <tr>
+                                        <td>Seat Comfort</td>
+                                        <td><input type="radio" value="0" name="seat_comfort" required /></td>
+                                        <td><input type="radio" value="1" name="seat_comfort" required /></td>
+                                        <td><input type="radio" value="2" name="seat_comfort" required /></td>
+                                        <td><input type="radio" value="3" name="seat_comfort" required /></td>
+                                        <td><input type="radio" value="4" name="seat_comfort" required /></td>
+                                        <td><input type="radio" value="5" name="seat_comfort" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">Departure / Arrival time convenient &emsp;&emsp;</td>
+                                        <td><input type="radio" value="0" name="satisfied" required /></td>
+                                        <td><input type="radio" value="1" name="satisfied" required /></td>
+                                        <td><input type="radio" value="2" name="satisfied" required /></td>
+                                        <td><input type="radio" value="3" name="satisfied" required /></td>
+                                        <td><input type="radio" value="4" name="satisfied" required /></td>
+                                        <td><input type="radio" value="5" name="satisfied" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">Food and Drink &emsp;&emsp;</td>
+                                        <td><input type="radio" value="0" name="prices" required /></td>
+                                        <td><input type="radio" value="1" name="prices" required /></td>
+                                        <td><input type="radio" value="2" name="prices" required /></td>
+                                        <td><input type="radio" value="3" name="prices" required /></td>
+                                        <td><input type="radio" value="4" name="prices" required /></td>
+                                        <td><input type="radio" value="5" name="prices" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">Gate Location &emsp;&emsp;</td>
+                                        <td><input type="radio" value="0" name="timeliness" required /></td>
+                                        <td><input type="radio" value="1" name="timeliness" required /></td>
+                                        <td><input type="radio" value="2" name="timeliness" required /></td>
+                                        <td><input type="radio" value="3" name="timeliness" required /></td>
+                                        <td><input type="radio" value="4" name="timeliness" required /></td>
+                                        <td><input type="radio" value="5" name="timeliness" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">Inflight wifi service &emsp;&emsp;</td>
+                                        <td><input type="radio" value="0" name="name" required /></td>
+                                        <td><input type="radio" value="1" name="name" required /></td>
+                                        <td><input type="radio" value="2" name="name" required /></td>
+                                        <td><input type="radio" value="3" name="name" required /></td>
+                                        <td><input type="radio" value="4" name="name" required /></td>
+                                        <td><input type="radio" value="5" name="name" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">Inflight entertainment &emsp;&emsp;</td>
+                                        <td><input type="radio" value="0" name="recommend" required /></td>
+                                        <td><input type="radio" value="1" name="recommend" required /></td>
+                                        <td><input type="radio" value="2" name="recommend" required /></td>
+                                        <td><input type="radio" value="3" name="recommend" required /></td>
+                                        <td><input type="radio" value="4" name="recommend" required /></td>
+                                        <td><input type="radio" value="5" name="recommend" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">Online support &emsp;&emsp;</td>
+                                        <td><input type="radio" value="0" name="rate2" required /></td>
+                                        <td><input type="radio" value="1" name="rate2" required /></td>
+                                        <td><input type="radio" value="2" name="rate2" required /></td>
+                                        <td><input type="radio" value="3" name="rate2" required /></td>
+                                        <td><input type="radio" value="4" name="rate2" required /></td>
+                                        <td><input type="radio" value="5" name="rate2" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">Ease of Online Booking &emsp;&emsp;</td>
+                                        <td><input type="radio" value="0" name="satisfied2" required /></td>
+                                        <td><input type="radio" value="1" name="satisfied2" required /></td>
+                                        <td><input type="radio" value="2" name="satisfied2" required /></td>
+                                        <td><input type="radio" value="3" name="satisfied2" required /></td>
+                                        <td><input type="radio" value="4" name="satisfied2" required /></td>
+                                        <td><input type="radio" value="5" name="satisfied2" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">On-board service &emsp;&emsp;</td>
+                                        <td><input type="radio" value="0" name="prices2" required /></td>
+                                        <td><input type="radio" value="1" name="prices2" required /></td>
+                                        <td><input type="radio" value="2" name="prices2" required /></td>
+                                        <td><input type="radio" value="3" name="prices2" required /></td>
+                                        <td><input type="radio" value="4" name="prices2" required /></td>
+                                        <td><input type="radio" value="5" name="prices2" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">Leg room service &emsp;&emsp;</td>
+                                        <td><input type="radio" value="0" name="timeliness2" required /></td>
+                                        <td><input type="radio" value="1" name="timeliness2" required /></td>
+                                        <td><input type="radio" value="2" name="timeliness2" required /></td>
+                                        <td><input type="radio" value="3" name="timeliness2" required /></td>
+                                        <td><input type="radio" value="4" name="timeliness2" required /></td>
+                                        <td><input type="radio" value="5" name="timeliness2" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">Baggage handling &emsp;&emsp;</td>
+                                        <td><input type="radio" value="0" name="name2" required /></td>
+                                        <td><input type="radio" value="1" name="name2" required /></td>
+                                        <td><input type="radio" value="2" name="name2" required /></td>
+                                        <td><input type="radio" value="3" name="name2" required /></td>
+                                        <td><input type="radio" value="4" name="name2" required /></td>
+                                        <td><input type="radio" value="5" name="name2" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">Checking service &emsp;&emsp;</td>
+                                        <td><input type="radio" value="0" name="recommend2" required /></td>
+                                        <td><input type="radio" value="1" name="recommend2" required /></td>
+                                        <td><input type="radio" value="2" name="recommend2" required /></td>
+                                        <td><input type="radio" value="3" name="recommend2" required /></td>
+                                        <td><input type="radio" value="4" name="recommend2" required /></td>
+                                        <td><input type="radio" value="5" name="recommend2" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">Cleanliness &emsp;&emsp;</td>
+                                        <td><input type="radio" value="0" name="name3" required /></td>
+                                        <td><input type="radio" value="1" name="name3" required /></td>
+                                        <td><input type="radio" value="2" name="name3" required /></td>
+                                        <td><input type="radio" value="3" name="name3" required /></td>
+                                        <td><input type="radio" value="4" name="name3" required /></td>
+                                        <td><input type="radio" value="5" name="name3" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-col">Online support &emsp;</td>
+                                        <td><input type="radio" value="0" name="recommend3" required /> &emsp;&emsp;&emsp;</td>
+                                        <td><input type="radio" value="1" name="recommend3" required /> &emsp;&emsp;&emsp;</td>
+                                        <td><input type="radio" value="2" name="recommend3" required /> &emsp;&emsp;&emsp;</td>
+                                        <td><input type="radio" value="3" name="recommend3" required /> &emsp;&emsp;&emsp;</td>
+                                        <td><input type="radio" value="4" name="recommend3" required /> &emsp;&emsp;&emsp;</td>
+                                        <td><input type="radio" value="5" name="recommend3" required /> &emsp;&emsp;&emsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </fieldset>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXlB1gkYF2F/XOXF09WkAAjF1L6L+ON2zF4zNfUJ0AN5Ix83lzN+8EGXwjA4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGFiZK3wE5nkBw0ynHCeAHKnKr9Q2llp6cVQP1KpN0OXmWPGLxWt7fIqJrT" crossorigin="anonymous"></script>
+</body>
+
+</html>
