@@ -54,7 +54,6 @@ navbar = dbc.Navbar(
                         dbc.Col(dbc.NavbarBrand("AIR U.S.", className="ml-2")),
                     ],
                     align="center",
-                    no_gutters=True,
                 ),
                 href="/home",
             ),
