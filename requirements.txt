@@ -3,4 +3,4 @@ dash-bootstrap-components
 pandas
 plotly
 plotly.express
-pickle
+pickle5
