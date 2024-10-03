@@ -4,3 +4,4 @@ pandas
 plotly
 plotly.express
 pickle5
+gunicorn
