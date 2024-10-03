@@ -4,7 +4,6 @@ import os
 from typing import Container
 import plotly.express as px
 import pandas as pd
-import pickle
 import dash_html_components as html
 from dash.dependencies import Output, Input
 import plotly.tools as tls
@@ -24,7 +23,7 @@ app = dash.Dash(
                             'content': 'width=device-width, initial-scale=1.0, maximum-scale=1.2, minimum-scale=0.5,'}],
     assets_external_path='assets/',
     external_stylesheets=external_stylesheets,
-    
+    requests_pathname_prefix='/FDMProject_Airline_Satisfaction/',
     )
 
 server = app.server
