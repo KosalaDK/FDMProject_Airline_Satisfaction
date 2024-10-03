@@ -3,10 +3,8 @@ import dash
 import plotly.express as px
 import pandas as pd
 import pickle
-
-import dash_core_components as dcc
+from dash import dcc,html
 import dash_bootstrap_components as dbc
-import dash_html_components as html
 from dash.dependencies import Output, Input
 import plotly.tools as tls
 import plotly.graph_objs

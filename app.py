@@ -4,7 +4,7 @@ import os
 from typing import Container
 import plotly.express as px
 import pandas as pd
-import dash_html_components as html
+from dash import dcc,html
 from dash.dependencies import Output, Input
 import plotly.tools as tls
 import plotly.graph_objs
