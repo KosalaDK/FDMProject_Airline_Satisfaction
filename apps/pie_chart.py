@@ -10,8 +10,6 @@ import dash_html_components as html
 from dash.dependencies import Output, Input
 import plotly.tools as tls
 import plotly.graph_objs
-from matplotlib import pyplot as plt
-import seaborn as sns
 from plotly.tools import mpl_to_plotly
 import os
 from app import app
